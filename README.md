@@ -11,6 +11,7 @@ For quick opening your sessions saved in **~/.vim/sessions/**.
 Features
 --------
 1. For now it only can load the session files stored in **~/.vim/sessions/**
+
 Future features:
 
 1. Actions: update, delete sessions
@@ -18,12 +19,12 @@ Future features:
 
 Installation
 ------------
-* Get the source from Github <https://github.com/tungd/unite-session.vim>  
-    git clone 
+* Get the source from Github <https://github.com/tungd/unite-session>  
+    `git clone https://github.com/tungd/unite-session.git`
 * Copy `autoload/unite/sources/session.vim` and `autoload/unite/kinds/session.vim`
   to appropriate location (e.g ~/.vim/autoload/).
 
-_NOTE_: Or use Tim Pope's [pathogen](https://github.com/tpope/vim-pathogen) plugin.
+**NOTE**: Or use Tim Pope's [pathogen](https://github.com/tpope/vim-pathogen) plugin.
 
 Bug report or feature request
 -----------------------------
@@ -31,7 +32,7 @@ You can report issues via Github or send me email (see Credits).
 
 Credits
 -------
-Author: Tung Dao <me@tungdao.com>  
+Author: Tung Dao <me@tungdao.com>
 Special thanks to:
 
 * Shougo: https://github.com/shougo
