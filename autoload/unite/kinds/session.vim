@@ -51,9 +51,9 @@ function! s:kind.action_table.delete.func(candidates)
         return
     endif
     if has("win16") || has("win32") || has("win64")
-        silent execute '!del ~/.vim/sessions/' . a:candidates[0].word
+        silent execute '!del ~/.vim/sessions/' . shellescape(a:candidates[0].word, 1)
     else
-        silent execute "!rm ~/.vim/sessions/" . a:candidates[0].word
+        silent execute '!rm ~/.vim/sessions/' . shellescape(a:candidates[0].word, 1)
     endif
 endfunction
 
