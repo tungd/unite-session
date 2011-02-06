@@ -41,6 +41,22 @@ function! s:kind.action_table.execute.func(candidates)
     execute "source ~/.vim/sessions/" . a:candidates[0].word
 endfunction
 
+let s:kind.action_table.delete = {
+            \ 'description': 'delete session',
+            \ 'is_selectable': 1,
+            \ }
+function! s:kind.action_table.delete.func(candidates)
+    if len(a:candidates) != 1
+        echo "candidates must be only one"
+        return
+    endif
+    if has("win16") || has("win32") || has("win64")
+        silent execute '!del ~/.vim/sessions/' . a:candidates[0].word
+    else
+        silent execute "!rm ~/.vim/sessions/" . a:candidates[0].word
+    endif
+endfunction
+
 function! unite#kinds#session#define()
     return s:kind
 endfunction
