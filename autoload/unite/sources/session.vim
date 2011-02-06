@@ -24,14 +24,26 @@
 "
 "=============================================================================
 
+if !exists('g:unite_session_path')
+    if has("win32") || has("win64")
+        " Default path for Windows
+        let s:session_path = $HOME . '/Documents/vimfiles'
+    else
+        " Default path for Linux, Unix and Mac OS X
+        let s:session_path = $HOME . '/.vim/sessions/'
+    endif
+else
+    s:session_path = g:unite_session_path
+endif
+
 let s:unite_source = {
     \ 'name': 'session',
     \ }
 
 function! s:unite_source.gather_candidates(args, context)
     " [(name, dir)]
-    let session_list = map(split(globpath(&runtimepath, 'sessions/*'), '\n'),
-        \ '[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":h")]')
+    let session_list = map(split(globpath(s:session_path, '/*'), '\n'),
+                \ '[fnamemodify(v:val, ":t:r"), fnamemodify(v:val, ":h")]')
 
     return map(session_list, '{
             \ "word": v:val[0],
