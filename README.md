@@ -32,7 +32,7 @@ You can report issues via Github or send me email (see Credits).
 
 Credits
 -------
-Author: Tung Dao <me@tungdao.com>
+Author: Tung Dao <me@tungdao.com>  
 Special thanks to:
 
 * Shougo: https://github.com/shougo
