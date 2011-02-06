@@ -51,10 +51,8 @@ function! s:kind.action_table.delete.func(candidates)
         echo "candidates must be only one"
         return
     endif
-    if has("win32") || has("win64")
-        silent execute '!del ' . shellescape(a:candidates[0].action__path, 1)
-    else
-        silent execute '!rm ' . shellescape(a:candidates[0].action__path, 1)
+    if delete(a:candidates[0].action__path) != 0
+        redraw | echohl ErrorMsg | echo 'Error deleting "' . a:name . '" session file' | echohl None
     endif
 endfunction
 
