@@ -26,14 +26,15 @@
 
 let s:kind = {
             \ 'name': 'session',
-            \ 'default_action': 'execute',
+            \ 'default_action': 'load',
             \ 'action_table': {},
             \ 'parents': [],
             \ }
-let s:kind.action_table.execute = {
+let s:kind.action_table.load = {
+            \ 'description': 'load session',
             \ 'is_selectable': 1,
             \ }
-function! s:kind.action_table.execute.func(candidates)
+function! s:kind.action_table.load.func(candidates)
     if len(a:candidates) != 1
         echo "candidates must be only one"
         return
