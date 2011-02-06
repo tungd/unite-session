@@ -57,6 +57,18 @@ function! s:kind.action_table.delete.func(candidates)
     endif
 endfunction
 
+let s:kind.action_table.edit = {
+            \ 'description': 'edit existing session',
+            \ 'is_selectable': 1,
+            \ }
+function! s:kind.action_table.edit.func(candidates)
+    if len(a:candidates) != 1
+        echo "candidates must be only one"
+        return
+    endif
+    execute 'edit ~/.vim/sessions/' . a:candidates[0].word
+endfunction
+
 function! unite#kinds#session#define()
     return s:kind
 endfunction
