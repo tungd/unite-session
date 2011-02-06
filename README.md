@@ -11,15 +11,15 @@ For quick opening your sessions saved in **~/.vim/sessions/**.
 Features
 --------
 1. For now it only can load the session files stored in **~/.vim/sessions/**
+  or g:unite_session_path
+2. Actions: edit, delete sessions
 
 Future features:
-
-1. Actions: update, delete sessions
-2. Configurable location for session files
+1. `session_mru` source
 
 Installation
 ------------
-* Get the source from Github <https://github.com/tungd/unite-session>  
+* Get the source from Github <https://github.com/tungd/unite-session>
     `git clone https://github.com/tungd/unite-session.git`
 * Copy `autoload/unite/sources/session.vim` and `autoload/unite/kinds/session.vim`
   to appropriate location (e.g ~/.vim/autoload/).
@@ -32,9 +32,13 @@ You can report issues via Github or send me email (see Credits).
 
 Credits
 -------
-Author: Tung Dao <me@tungdao.com>  
+Author: Tung Dao <me@tungdao.com>
 Special thanks to:
 
 * Shougo: https://github.com/shougo
 * Ujihisa: https://github.com/ujihisa
+
+License
+-------
+MIT License
 
