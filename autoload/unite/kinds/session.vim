@@ -38,7 +38,7 @@ function! s:kind.action_table.execute.func(candidates)
         echo "candidates must be only one"
         return
     endif
-    execute "source ~/.vim/sessions/" . a:candidates[0].word
+    execute "source " . substitute(a:candidates[0].action__path, '\v(\s)', '\\\1', 'g')
 endfunction
 
 let s:kind.action_table.delete = {
@@ -50,10 +50,10 @@ function! s:kind.action_table.delete.func(candidates)
         echo "candidates must be only one"
         return
     endif
-    if has("win16") || has("win32") || has("win64")
-        silent execute '!del ~/.vim/sessions/' . shellescape(a:candidates[0].word, 1)
+    if has("win32") || has("win64")
+        silent execute '!del ' . shellescape(a:candidates[0].action__path, 1)
     else
-        silent execute '!rm ~/.vim/sessions/' . shellescape(a:candidates[0].word, 1)
+        silent execute '!rm ' . shellescape(a:candidates[0].action__path, 1)
     endif
 endfunction
 
@@ -66,7 +66,7 @@ function! s:kind.action_table.edit.func(candidates)
         echo "candidates must be only one"
         return
     endif
-    execute 'edit ~/.vim/sessions/' . a:candidates[0].word
+    execute "edit " . substitute(a:candidates[0].action__path, '\v(\s)', '\\\1', 'g')
 endfunction
 
 function! unite#kinds#session#define()
