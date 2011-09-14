@@ -51,6 +51,9 @@ function! s:kind.action_table.delete.func(candidates)
         echo "candidates must be only one"
         return
     endif
+    if (a:candidates[0].action__path == v:this_session)
+        let v:this_session = ''
+    endif
     if delete(a:candidates[0].action__path) != 0
         redraw | echohl ErrorMsg | echo 'Error deleting "' . a:name . '" session file' | echohl None
     endif
