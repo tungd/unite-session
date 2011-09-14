@@ -55,7 +55,10 @@ function! s:kind.action_table.delete.func(candidates)
         let v:this_session = ''
     endif
     if delete(a:candidates[0].action__path) != 0
-        redraw | echohl ErrorMsg | echo 'Error deleting "' . a:name . '" session file' | echohl None
+        redraw
+        echohl ErrorMsg
+        echo 'Error deleting "' . a:candidates[0].action__path . '" session file'
+        echohl None
     endif
 endfunction
 
