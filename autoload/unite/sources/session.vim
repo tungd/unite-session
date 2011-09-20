@@ -33,7 +33,7 @@ if !exists('g:unite_session_path')
         let s:session_path = $HOME . '/.vim/sessions/'
     endif
 else
-    s:session_path = g:unite_session_path
+    let s:session_path = g:unite_session_path
 endif
 
 let s:unite_source = {
