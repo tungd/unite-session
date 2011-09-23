@@ -32,7 +32,7 @@ let s:kind = {
             \ }
 
 function! s:BufClear()
-    if (exists('g:unite_session_keep_active_sessions'))
+    if (exists('g:unite_session_keep_buffers'))
         return
     endif
 
