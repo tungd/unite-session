@@ -13,19 +13,25 @@ Features
 1. Load the session files stored in **~/.vim/sessions/** or g:unite_session_path
 2. Actions: edit, delete sessions
 
-Future features:
-1. `session_mru` source
-
 Installation
 ------------
-* Get the source from Github <https://github.com/tungd/unite-session>  
+* Get the source from Github <https://github.com/tungd/unite-session>
   `git clone https://github.com/tungd/unite-session.git`
-* Copy `autoload/unite/sources/session.vim` and `autoload/unite/kinds/session.vim`  
+* Copy `autoload/unite/sources/session.vim` and `autoload/unite/kinds/session.vim`
   to appropriate location (e.g ~/.vim/autoload/).
-* Add to your `.vimrc` file to make sessions updated automatically:  
-  `autocmd VimLeavePre * if v:this_session != '' | exec "mks! " . v:this_session | endif`
 
 **NOTE**: Or use Tim Pope's [pathogen](https://github.com/tpope/vim-pathogen) plugin.
+
+Options
+-------
+* `g:unite_session_path`: By default the plugin looks for session files in `$HOME/.vim/sessions/`
+  on Mac OS and Linux, and `$HOME/Documents/vimfiles/sessions` on Windows. You can overdrive
+  this behavior by setting this variable.
+* `g:unite_session_keep_buffers`: By default when load new buffers the plugin will delete
+  all current buffer. Set this options to keep your current buffers loading along side
+  session's buffers. NOTE: These current buffers will be save to session file at quit.
+* `g:unite_session_force_no_update`: The previous tips to keep the session automatically
+  updated is now enabled by default. Set this options to disable it.
 
 Bug report or feature request
 -----------------------------
