@@ -30,6 +30,28 @@ let s:kind = {
             \ 'action_table': {},
             \ 'parents': [],
             \ }
+
+function! s:BufClear()
+    if (exists('g:unite_session_keep_active_sessions'))
+        return
+    endif
+
+    let l:last_buf = bufnr('$')
+
+    let l:i = 1
+    while l:i <= last_buf
+        let l:i = l:i + 1
+    endwhile
+
+    let l:i = 1
+    while l:i <= l:last_buf
+        if buflisted(l:i)
+            silent execute 'bd ' . l:i
+        endif
+        let l:i = l:i + 1
+    endwhile
+endfunction
+
 let s:kind.action_table.load = {
             \ 'description': 'load session',
             \ 'is_selectable': 1,
@@ -39,6 +61,7 @@ function! s:kind.action_table.load.func(candidates)
         echo "candidates must be only one"
         return
     endif
+    call s:BufClear()
     execute "source " . substitute(a:candidates[0].action__path, '\v(\s)', '\\\1', 'g')
 endfunction
 
