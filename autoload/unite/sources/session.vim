@@ -36,6 +36,13 @@ else
     let s:session_path = g:unite_session_path
 endif
 
+if !exists('g:unite_session_force_no_update')
+  autocmd VimLeavePre *
+              \ if v:this_session != ''
+              \ exec "mks! " . v:this_session
+              \ endif
+endif
+
 let s:unite_source = {
     \ 'name': 'session',
     \ }
